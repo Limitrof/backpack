@@ -33,6 +33,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     CRUD::resource('tcd_art_categorie', 'Admin\Tcd_art_categorieCrudController');
     CRUD::resource('tcd_car', 'Admin\Tcd_carCrudController');
     CRUD::resource('service_book', 'Admin\ServiceBookCrudController');
+    CRUD::resource('brand', 'Admin\BrandCrudController');
   
 });
 //20161219lim for adminLTE

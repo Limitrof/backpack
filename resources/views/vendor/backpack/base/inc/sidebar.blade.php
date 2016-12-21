@@ -26,7 +26,8 @@
 		  <li><a href="{{ url('admin/tcd_article') }}"><i class="fa fa-tag"></i> <span>Manage TECDOC tcd_article</span></a></li>
 		  <li><a href="{{ url('admin/tcd_car') }}"><i class="fa fa-tag"></i> <span>Manage TECDOC tcd_car</span></a></li>
 		  <li><a href="{{ url('admin/tcd_art_categorie') }}"><i class="fa fa-tag"></i> <span>Manage TECDOC tcd_art_categories</span></a></li>
-		  <li><a href="{{ url('admin/service_book') }}"><i class="fa fa-tag"></i> <span>Manage Service_book</span></a></li>
+		  <li><a href="{{ url('admin/service_book') }}"><i class="fa fa-tag"></i> <span>Manage Service Books</span></a></li>
+		  <li><a href="{{ url('admin/brand') }}"><i class="fa fa-tag"></i> <span>Manage Brands</span></a></li>
 		  <!-- 20161219lim управление файлами -->
 <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-files-o"></i> <span>File manager</span></a></li>
 
