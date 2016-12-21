@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\Service_bookRequest as StoreRequest;
-use App\Http\Requests\Service_bookRequest as UpdateRequest;
+use App\Http\Requests\BrandsRequest as StoreRequest;
+use App\Http\Requests\BrandsRequest as UpdateRequest;
 
-class Service_bookCrudController extends CrudController {
+class BrandsCrudController extends CrudController {
 
 	public function setUp() {
 
@@ -17,20 +17,10 @@ class Service_bookCrudController extends CrudController {
 		| BASIC CRUD INFORMATION
 		|--------------------------------------------------------------------------
 		*/
-        $this->crud->setModel("App\Models\Service_book");
-        $this->crud->setRoute("admin/service_book");
-        $this->crud->setEntityNameStrings('service_book', 'service_books');
+        $this->crud->setModel("App\Models\Brands");
+        $this->crud->setRoute("admin/brands");
+        $this->crud->setEntityNameStrings('brands', 'brandss');
 
-		
-		
-		 $this->crud->addField([  // Select
-      'label' => "tcd_car_id",
-      'type' => 'select',
-      'name' => 'tcd_car_id', // the db column for the foreign key
-      'entity' => 'tcd_car', // the method that defines the relationship in your Model
-      'attribute' => 'tcd_car_id', // foreign key attribute that is shown to user
-      'model' => "App\Models\tcd_car" // foreign key model
-   ]);
         /*
 		|--------------------------------------------------------------------------
 		| BASIC CRUD INFORMATION

@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\Tcd_carRequest as StoreRequest;
-use App\Http\Requests\Tcd_carRequest as UpdateRequest;
+use App\Http\Requests\Service_bookRequest as StoreRequest;
+use App\Http\Requests\Service_bookRequest as UpdateRequest;
 
-class Tcd_carCrudController extends CrudController {
+class ServiceBookCrudController extends CrudController {
 
 	public function setUp() {
 
@@ -17,17 +17,53 @@ class Tcd_carCrudController extends CrudController {
 		| BASIC CRUD INFORMATION
 		|--------------------------------------------------------------------------
 		*/
-        $this->crud->setModel("App\Models\TcdCar");
-        $this->crud->setRoute("admin/tcd_car");
-        $this->crud->setEntityNameStrings('tcd_car', 'tcd_cars');
-
+        $this->crud->setModel("App\Models\ServiceBook");
+        $this->crud->setRoute("admin/service_book");
+        $this->crud->setEntityNameStrings('service_book', 'service_books');
+	
+		$this->crud->addColumn([
+            'name' => 'gos_number',
+            'label' => "Госномер"
+        ]); 
+        $this->crud->addColumn([
+            'name' => 'vin',
+            'label' => "VIN"
+        ]);				
+		
+		$this->crud->addField([
+            'name' => 'gos_number',
+            'label' => "Госномер"
+        ]); 
+        $this->crud->addField([
+            'name' => 'vin',
+            'label' => "VIN"
+        ]);
+		
+		 $this->crud->addField([       // Select2Multiple = n-n relationship (with pivot table)
+                                'label' => 'tcd_cars***',
+                                'type' => 'select', //'type' => 'select2_multiple',
+                                'name' => 'tcd_car_id', 
+                                'entity' => 'tcdCar', // the method that defines the relationship in your Model
+                                'attribute' => 'model', // foreign key attribute that is shown to user
+                                'model' => "App\Models\TcdCar", // foreign key model
+                                //'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+                            ]);
+							
+		$this->crud->addField([
+								'label' => "User ID",
+								'type' => 'select', //'type' => 'select2_multiple',
+								'name' => 'user_id', 
+                                'entity' => 'user', // the method that defines the relationship in your Model
+                                'attribute' => 'name', // foreign key attribute that is shown to user
+                                'model' => "App\User", // foreign key model
+							]);
+		//$this->crud->setFromDb(); !~!!!!!!!!!!!!!!!!!!!!!!!!!
         /*
 		|--------------------------------------------------------------------------
 		| BASIC CRUD INFORMATION
 		|--------------------------------------------------------------------------
 		*/
 
-		$this->crud->setFromDb();
 
 		// ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');

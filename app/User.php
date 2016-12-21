@@ -28,6 +28,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 	
+	
+	 public function serviceBooks()
+    {
+			return $this->hasMany('App\Models\ServiceBook','user_id');
+		}
 	  /**
    * Send the password reset notification.
    *

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Tcd_car extends Model
+class TcdCar extends Model
 {
 	use CrudTrait;
 
@@ -20,7 +20,7 @@ class Tcd_car extends Model
 	public $timestamps = true;
 	// protected $guarded = ['id'];
 	protected $fillable = ['model','brand_id','year'];
-	protected $hidden = ['year'];
+	protected $hidden = ['year']; 
     // protected $dates = [];
 
 	/*
@@ -34,9 +34,9 @@ class Tcd_car extends Model
 	| RELATIONS
 	|--------------------------------------------------------------------------
 	*/
-public function service_books()
-		{
-			return $this->hasMany('App\Models\service_book', 'service_books_tcd_car_id');
+    public function serviceBooks()
+    {
+			return $this->hasMany('App\Models\ServiceBook','tcd_car_id');
 		}
 	/*
 	|--------------------------------------------------------------------------
