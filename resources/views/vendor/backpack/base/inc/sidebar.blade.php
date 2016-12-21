@@ -20,6 +20,13 @@
           <!-- ==== Recommended place for admin menu items ==== -->
           <!-- ================================================ -->
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
+		  <!-- 20161221 table tasks-->
+		  <li><a href="{{ url('admin/task') }}"><i class="fa fa-tag"></i> <span>Manage Task [remove]</span></a></li>
+		  <li><a href="{{ url('admin/service') }}"><i class="fa fa-tag"></i> <span>Manage Service</span></a></li>
+		  <li><a href="{{ url('admin/tcd_article') }}"><i class="fa fa-tag"></i> <span>Manage TECDOC tcd_article</span></a></li>
+		  <li><a href="{{ url('admin/tcd_car') }}"><i class="fa fa-tag"></i> <span>Manage TECDOC tcd_car</span></a></li>
+		  <li><a href="{{ url('admin/tcd_art_categorie') }}"><i class="fa fa-tag"></i> <span>Manage TECDOC tcd_art_categories</span></a></li>
+		  <li><a href="{{ url('admin/service_book') }}"><i class="fa fa-tag"></i> <span>Manage Service_book</span></a></li>
 		  <!-- 20161219lim управление файлами -->
 <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-files-o"></i> <span>File manager</span></a></li>
 
