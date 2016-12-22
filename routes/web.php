@@ -1,5 +1,5 @@
 <?php
-
+use App\Brand;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,14 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/brands', function () {
+ // $brands = new Brand;// - будет тупо создан пустой класс  Task::orderBy('created_at', 'asc')->get();
+  //$tasks = Task::orderBy('created_at', 'asc')->get();
+$brands= Brand::find(4)->get();
+  return view('brand')->with(['brands'=>$brands]); /*view('tasks', [
+    'tasks' => $tasks
+  ]);*/
+});
+
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
 
 Auth::routes();
 
