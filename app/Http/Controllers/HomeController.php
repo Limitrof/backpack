@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+		$brand1 = Brand::find(1);
+        return $brand1;//view('home');
     }
 }
