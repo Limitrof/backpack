@@ -29,10 +29,15 @@ class User extends Authenticatable
     ];
 	
 	
-	 public function serviceBooks()
+    public function serviceBooks()
     {
 			return $this->hasMany('App\Models\ServiceBook','user_id');
-		}
+    }    
+    
+    public function organization()
+    {
+			return $this->hasMany('App\Models\Organization','user_id');
+    }
 	  /**
    * Send the password reset notification.
    *

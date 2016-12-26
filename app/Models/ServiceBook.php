@@ -35,13 +35,13 @@ class ServiceBook extends Model
 	|--------------------------------------------------------------------------
 	*/
 	public function tcdCar()
-		{
-			return $this->belongsTo('App\Models\TcdCar');
-		}	
-		public function User()
-		{
-			return $this->belongsTo('App\Models\User');
-		}
+	{
+		return $this->belongsTo('App\Models\TcdCar');
+	}	
+	public function User()
+	{
+		return $this->belongsTo('App\Models\User');
+	}
 	/*
 	|--------------------------------------------------------------------------
 	| SCOPES

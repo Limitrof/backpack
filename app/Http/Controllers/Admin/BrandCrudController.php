@@ -32,7 +32,6 @@ class BrandCrudController extends CrudController {
                                 'name' => 'logo',
                                 'label' => 'logo',
                                 'type' => 'browse',
-                                //'type' => 'browse',
                             ]);
 		// ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');

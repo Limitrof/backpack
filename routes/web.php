@@ -1,5 +1,7 @@
 <?php
-use App\Brand;
+
+use App\Models\Service;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,14 +12,22 @@ use App\Brand;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/brands', function () {
- // $brands = new Brand;// - будет тупо создан пустой класс  Task::orderBy('created_at', 'asc')->get();
+Route::get('/works', function () {
+ // $brands = new Brand;// - пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ  Task::orderBy('created_at', 'asc')->get();
   //$tasks = Task::orderBy('created_at', 'asc')->get();
-$brands= Brand::find(4)->get();
-  return view('brand')->with(['brands'=>$brands]); /*view('tasks', [
+$worktypes= Service::find(1)->get();
+  return view('worktypes')->with(['worktypes'=>$worktypes]); /*view('tasks', [
     'tasks' => $tasks
   ]);*/
 });
+
+Route::get('organizations', 'OrganizationController@index');
+Route::get('organization/{id}',  ['uses' => 'OrganizationController@getbyid']);
+Route::get('brands', 'BrandController@index'/*function () {
+
+$brands= Brand::find(4)->get();
+  return view('brand')->with(['brands'=>$brands]);
+}*/);
 
 
 Route::get('/', function () {
@@ -39,7 +49,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     CRUD::resource('tcd_car', 'Admin\Tcd_carCrudController');
     CRUD::resource('service_book', 'Admin\ServiceBookCrudController');
     CRUD::resource('brand', 'Admin\BrandCrudController');
-  
+    CRUD::resource('organization', 'Admin\OrganizationCrudController');
+    CRUD::resource('occupation', 'Admin\OccupationCrudController');
+    CRUD::resource('organizationoccupation', 'Admin\OrganizationoccupationCrudController');
+
 });
 //20161219lim for adminLTE
 //CRUD::resource('/admin/task', 'TaskCrudController');//->middleware('auth');

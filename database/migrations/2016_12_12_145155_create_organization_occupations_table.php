@@ -14,6 +14,7 @@ class CreateOrganizationOccupationsTable extends Migration
     public function up()
     {
         Schema::create('organization_occupations', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('organization_id')->unsigned()->nullable();
             $table->integer('occupation_id')->unsigned()->nullable();
             $table->timestamps();
