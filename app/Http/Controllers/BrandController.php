@@ -25,7 +25,11 @@ class BrandController extends Controller
     {
         //$brands= Brand::find(1)->get();
         //var_dump(Brand::find(4)->get());['user' => User::findOrFail($id)]
-        return view('brand',['brands' => Brand::find(1)->get()]);
+        //return view('brand',['brands' => Brand::has(1)->get()]);
+        return view('brand',['brands' => Brand::all()]);
+        // WORK WELL! return view('brand',['brands' => DB::table('brands')->get()]);
+		// $brands = DB::table('brands')->get();
         //return view('brand')->with(['brands'=>$brands]);
+		// return view('brand', ['brands' => $users]);
     }
 }

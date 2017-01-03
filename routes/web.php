@@ -24,10 +24,10 @@ $worktypes= Service::find(1)->get();
 Route::get('organizations', 'OrganizationController@index');
 Route::get('organization/{id}',  ['uses' => 'OrganizationController@getbyid']);
 Route::get('brands', 'BrandController@index'/*function () {
-
 $brands= Brand::find(4)->get();
   return view('brand')->with(['brands'=>$brands]);
 }*/);
+Route::get('users', 'UserController@index');
 
 
 Route::get('/', function () {
