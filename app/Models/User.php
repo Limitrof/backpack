@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class ServiceBook extends Model
+class User extends Model
 {
 	use CrudTrait;
 
@@ -15,12 +15,12 @@ class ServiceBook extends Model
 	|--------------------------------------------------------------------------
 	*/
 
-	protected $table = 'service_books';
+	protected $table = 'users';
 	protected $primaryKey = 'id';
 	public $timestamps = true;
 	// protected $guarded = ['id'];
-	protected $fillable = ['user_id','vin','gos_number','tcd_car_id'];
-	//protected $hidden = ['vin'];
+	protected $fillable = ['name','email'];
+	// protected $hidden = [];
     // protected $dates = [];
 
 	/*
@@ -34,18 +34,26 @@ class ServiceBook extends Model
 	| RELATIONS
 	|--------------------------------------------------------------------------
 	*/
-	public function tcdCar()
-	{
-		return $this->belongsTo('App\Models\TcdCar');
-	}	
-	public function User()
-	{
-		return $this->belongsTo('App\Models\User');
+
+	public function roles(){
+		return $this->belongsToMany('App\Models\Role')->withTimestamps();
 	}
-	public function order()
+	/*public function getOccupationById($currentkey)
 	{
-		return $this->hasMany('App\Models\Order','service_book_id');
-	}
+
+		$ocid = Organizationoccupation::where('organization_id', $currentkey)->get();
+		$alloccupations = '';
+		$len = count($ocid);
+		$i = 0;
+		foreach ($ocid as $onebyoneoccu) {
+			$currentoccupations_id = $onebyoneoccu->occupation_id;
+			$title = Occupation::find($currentoccupations_id)->title;
+
+			$alloccupations .= $title . (($i < $len - 1) ? "," : "");
+			$i++;
+		}
+		return $alloccupations;
+	}*/
 	/*
 	|--------------------------------------------------------------------------
 	| SCOPES

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class ServiceBook extends Model
+class Userrole extends Model
 {
 	use CrudTrait;
 
@@ -15,12 +15,12 @@ class ServiceBook extends Model
 	|--------------------------------------------------------------------------
 	*/
 
-	protected $table = 'service_books';
-	protected $primaryKey = 'id';
+	protected $table = 'user_roles';
+	/*protected $primaryKey = ['user_id','role_id'];*/
 	public $timestamps = true;
 	// protected $guarded = ['id'];
-	protected $fillable = ['user_id','vin','gos_number','tcd_car_id'];
-	//protected $hidden = ['vin'];
+	protected $fillable = ['user_id','role_id'];
+	// protected $hidden = [];
     // protected $dates = [];
 
 	/*
@@ -34,17 +34,13 @@ class ServiceBook extends Model
 	| RELATIONS
 	|--------------------------------------------------------------------------
 	*/
-	public function tcdCar()
-	{
-		return $this->belongsTo('App\Models\TcdCar');
-	}	
-	public function User()
+	public function user()
 	{
 		return $this->belongsTo('App\Models\User');
 	}
-	public function order()
+	public function role()
 	{
-		return $this->hasMany('App\Models\Order','service_book_id');
+		return $this->belongsTo('App\Models\Role');
 	}
 	/*
 	|--------------------------------------------------------------------------

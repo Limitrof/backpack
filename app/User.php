@@ -38,6 +38,13 @@ class User extends Authenticatable
     {
 			return $this->hasMany('App\Models\Organization','user_id');
     }
+    public function order()
+    {
+			return $this->hasMany('App\Models\Order','manager_user_id');
+    }
+    public function roles(){
+        return $this->belongsToMany('App\Models\Role');
+    }
 	  /**
    * Send the password reset notification.
    *

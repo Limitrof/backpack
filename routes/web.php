@@ -42,6 +42,7 @@ Route::get('/home', 'HomeController@index');
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
 {
   // Backpack\CRUD: Define the resources for the entities you want to CRUD.
+    CRUD::resource('user', 'Admin\UserCrudController');
     CRUD::resource('task', 'Admin\TaskCrudController');
     CRUD::resource('service', 'Admin\ServiceCrudController');
     CRUD::resource('tcd_article', 'Admin\Tcd_articleCrudController');
@@ -52,6 +53,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     CRUD::resource('organization', 'Admin\OrganizationCrudController');
     CRUD::resource('occupation', 'Admin\OccupationCrudController');
     CRUD::resource('organizationoccupation', 'Admin\OrganizationoccupationCrudController');
+    CRUD::resource('order', 'Admin\OrderCrudController');
+    CRUD::resource('role', 'Admin\RoleCrudController');
+    CRUD::resource('userrole', 'Admin\UserroleCrudController');
 
 });
 //20161219lim for adminLTE
