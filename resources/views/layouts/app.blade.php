@@ -13,12 +13,67 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
+
+	$(document).ready(function(){
+			$(".brand").click(function(){
+                console.log('it is '+$(this).data('brandid'));
+        var brandName=$(this).html();
+        var brandId=$(this).data('brandid');
+            if(brandName!=0)
+            {
+                $("#models").html("<img src='uploads/getting.gif'/>  идет запрос моделей... пожалуйста, подождите");
+                $.ajax({
+                            type: "GET",
+                            url:"/modelsbyid/"+brandId,
+                            success: function (data, textStatus)
+                            {
+                                if(data!=''){
+                                    var rowbyrow='';
+                                    data.forEach(function(element) {
+                                        rowbyrow+='<a href="#" onclick="getMod('+element.MOD_ID+')">'+element.TEX_TEXT+'</a><br/>';
+                                    });
+                                    $("#models").html(rowbyrow);
+                                    $("#modification").html("");
+                                }else{
+                                    $("#models").html("Моделей не найдено");
+                                    $("#modification").html("");
+                                }
+                            }
+                });
+
+            }
+        });
+	});
+//уникальная модификация по модели
+        function getMod(mid){
+
+            console.log('it is '+mid);
+
+            var mod_id=$(this).data('modid');
+            if(mod_id!=0)
+            {
+                $("#modification").html("<img src='uploads/getting.gif'/> идет запрос модификаций... пожалуйста, подождите");
+                $.ajax({
+                    type: "GET",
+                    url: "/modification/"+mid,
+                    success: function (data, textStatus)
+                    {
+                        console.log('ok'+data);
+                        if(data!=''){
+                            $("#modification").html(data);
+                        }else{
+                            $("#modification").html("Модификации не найдены");
+                        }
+                    }
+                });
+            }
+        }
     </script>
 </head>
 <body>

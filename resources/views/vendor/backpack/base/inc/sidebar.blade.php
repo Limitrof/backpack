@@ -20,7 +20,17 @@
           <!-- ==== Recommended place for admin menu items ==== -->
           <!-- ================================================ -->
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
-		  <!-- 20161221 table tasks-->
+
+          <!-- Users, Roles Permissions -->
+          <li class="treeview">
+            <a href="#"><i class="fa fa-group"></i> <span>Users, Roles, Permissions</span> <i class="fa fa-angle-left pull-right"></i></a>
+            <ul class="treeview-menu">
+              <li><a href="{{ url('admin/user') }}"><i class="fa fa-user"></i> <span>Users</span></a></li>
+              <li><a href="{{ url('admin/role') }}"><i class="fa fa-group"></i> <span>Roles</span></a></li>
+              <li><a href="{{ url('admin/permission') }}"><i class="fa fa-key"></i> <span>Permissions</span></a></li>
+            </ul>
+          </li>
+		    <!-- 20161221 table tasks-->
             <li><a href="{{ url('admin/user') }}"><i class="fa fa-tag"></i> <span>Manage Users</span></a></li>
             <li><a href="{{ url('admin/task') }}"><i class="fa fa-tag"></i> <span>Manage Task [!!!remove]</span></a></li>
             <li><a href="{{ url('admin/service') }}"><i class="fa fa-tag"></i> <span>Manage Service</span></a></li>
@@ -33,8 +43,8 @@
             <li><a href="{{ url('admin/occupation') }}"><i class="fa fa-tag"></i> <span>Manage Occupations</span></a></li>
             <li><a href="{{ url('admin/organizationoccupation') }}"><i class="fa fa-tag"></i> <span>Manage OrganizationOccupation connects</span></a></li>
             <li><a href="{{ url('admin/order') }}"><i class="fa fa-tag"></i> <span>Manage Orders</span></a></li>
-            <li><a href="{{ url('admin/role') }}"><i class="fa fa-tag"></i> <span>Manage Roles</span></a></li>
-            <li><a href="{{ url('admin/userrole') }}"><i class="fa fa-tag"></i> <span>Manage User_Roles</span></a></li>
+            {{--<li><a href="{{ url('admin/role') }}"><i class="fa fa-tag"></i> <span>Manage Roles</span></a></li>
+            <li><a href="{{ url('admin/userrole') }}"><i class="fa fa-tag"></i> <span>Manage User_Roles</span></a></li>--}}
 		  <!-- 20161219lim ���������� ������� -->
 <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-files-o"></i> <span>File manager</span></a></li>
 

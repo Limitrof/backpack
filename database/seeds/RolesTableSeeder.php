@@ -11,7 +11,7 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-         DB::table('roles')->insert(
+         DB::table('rolesauto')->insert(
 		  array(
                                 array(
 										'id' => 1,
@@ -67,6 +67,11 @@ class RolesTableSeeder extends Seeder
                                       'id' => 11,
 									  'title' => 'Региональный дистрибьютор',
 									  'parent_id' => 10,
+                                ),
+                               array(
+                                      'id' => 42,
+									  'title' => 'Админ',
+									  'parent_id' => null,
                                 ),
                         ));
     }

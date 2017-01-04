@@ -9,7 +9,8 @@
         "laravel/framework": "5.3.*",
         "backpack/base": "^0.7.8",
         "backpack/crud": "^3.1",
-        "intervention/image": "^2.3"
+        "intervention/image": "^2.3",
+        "backpack/permissionmanager": "^2.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

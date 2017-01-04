@@ -26,7 +26,11 @@ class RoleCrudController extends CrudController {
 		| BASIC CRUD INFORMATION
 		|--------------------------------------------------------------------------
 		*/
-
+        $this->crud->addColumn([    // Image
+            'name' => 'id',
+            'label' => 'id',
+            /*      'type' => 'browse',*/
+        ]);
 		$this->crud->setFromDb();
 
 		// ------ CRUD FIELDS

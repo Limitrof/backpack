@@ -54,9 +54,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     CRUD::resource('occupation', 'Admin\OccupationCrudController');
     CRUD::resource('organizationoccupation', 'Admin\OrganizationoccupationCrudController');
     CRUD::resource('order', 'Admin\OrderCrudController');
-    CRUD::resource('role', 'Admin\RoleCrudController');
-    CRUD::resource('userrole', 'Admin\UserroleCrudController');
+    //CRUD::resource('role', 'Admin\RoleCrudController');
+    //CRUD::resource('userrole', 'Admin\UserroleCrudController');
 
 });
 //20161219lim for adminLTE
 //CRUD::resource('/admin/task', 'TaskCrudController');//->middleware('auth');
+
+/////////////////////////
+// API must be in api.php
+Route::get('models',
+    //function(){return 'some result';}
+    'ModelsAjaxController@index'
+);
+Route::get('modelsbyid/{id}',  ['uses' => 'ModelsAjaxController@getbyid']);
+Route::get('modification/{id}',  ['uses' => 'ModificationsAjaxController@getbyid']);
+
