@@ -39,7 +39,7 @@ class HomeController extends Controller
         $user -> isAdmin = DB::table('user_roles')->where('user_id',Auth::id())->where('role_id',42)->count();
 
         //get from TECDOC carmakers
-        $user -> carBrands = DB::table('TOF_MANUFACTURERS')->select('MFA_ID', 'MFA_BRAND')->where('MFA_SHOW_CAR',1)->get();
+        $user -> carBrands = DB::table('TOF_MANUFACTURERS')->select('MFA_ID', 'MFA_BRAND')->where('MFA_SHOW_CAR',1)->orderBy('MFA_BRAND')->get();
         $user -> org=Organization::find(1);
         return view('home',['user' => $user]);
     }

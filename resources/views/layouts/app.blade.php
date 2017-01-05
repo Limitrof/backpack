@@ -65,8 +65,16 @@
                     success: function (data, textStatus)
                     {
                         console.log('ok'+data);
+                        var rowbyrow = '';
                         if(data!=''){
-                            $("#modification").html(data);
+                            //textBody
+                            data.forEach(function(element) {
+                                var modStartYear=[element.yearStart.toString().slice(0, 4), '/', element.yearStart.toString().slice(4)].join('');
+                                var modEndYear=[element.yearEnd.toString().slice(0, 4), '/', element.yearEnd.toString().slice(4)].join('');
+                                rowbyrow+='<a href="#" onclick="getModific('+element.engineInfo+')">'+element.textEngi+' | Тип кузова: '+element.textBody+' | '+element.engiHorsFrom+' Л.С. |  '+element.engiKw+'  кВт | Объем двигателя: '+element.engiValcm+' | Годы выпуска: '+modStartYear+' - '+modEndYear+'</a><hr/>';
+                            });
+
+                            $("#modification").html(rowbyrow);
                         }else{
                             $("#modification").html("Модификации не найдены");
                         }
