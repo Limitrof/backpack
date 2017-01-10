@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+
+use Backpack\CRUD\CrudTrait; // <------------------------------- this one
+use Spatie\Permission\Traits\HasRoles;// <---------------------- and this one
+
+
 class RegisterController extends Controller
 {
     /*
@@ -21,7 +26,8 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-
+    use CrudTrait; // <----- this
+    use HasRoles; // <------ and this
     /**
      * Where to redirect users after registration.
      *
